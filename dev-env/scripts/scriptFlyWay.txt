@@ -1,0 +1,1 @@
+mvn clean flyway:migrate -pl SpringApp -"Dflyway.configFiles=D:\TMS\MVCproject\SpringApp\src\main\resources\db\flyway.properties"

@@ -1,0 +1,13 @@
+org\example\model\User.class
+org\example\session\AuthContext.class
+org\example\config\SessionConfig.class
+org\example\controller\UserController.class
+org\example\repository\JdbcUserRepository.class
+org\example\repository\UserRepository.class
+org\example\config\SpringMvcConfig.class
+org\example\config\JdbcConfig.class
+org\example\dto\UserDto.class
+org\example\controller\MainController.class
+org\example\controller\RegistrationController.class
+org\example\service\UserService.class
+org\example\UserApplication.class

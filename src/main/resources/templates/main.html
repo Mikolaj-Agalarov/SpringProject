@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>main page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+</head>
+<body>
+<div style="margin: 20%">
+  <div class="card-text">
+    <table class="table">
+      <tr>
+        <th>
+          <form method="GET"
+                action="#"
+                th:action="@{/registration}">
+            <button type="submit" class="btn btn-primary">register</button>
+          </form>
+        </th>
+        <th>
+          <form method="GET"
+                action="#"
+                th:action="@{/login}">
+            <button type="submit" class="btn btn-primary">login</button>
+          </form>
+        </th>
+        <th>
+          <form method="GET"
+                action="#"
+                th:action="@{/users}">
+            <button type="submit" class="btn btn-primary">see all users</button>
+          </form>
+        </th>
+      </tr>
+
+</div>
+
+</body>
+</html>
