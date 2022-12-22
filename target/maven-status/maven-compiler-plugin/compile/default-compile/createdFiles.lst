@@ -1,3 +1,4 @@
+org\example\controller\LoginController.class
 org\example\model\User.class
 org\example\session\AuthContext.class
 org\example\config\SessionConfig.class

@@ -9,4 +9,6 @@ public interface UserRepository {
     List<User> findUsers();
     Optional<User> getUser(String name);
     void createUser(String name, String password, String role);
+
+    boolean findByUsernameAndPassword(String name, String password);
 }

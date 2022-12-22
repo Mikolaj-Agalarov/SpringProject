@@ -30,4 +30,9 @@ public class UserService {
 
         userRepository.createUser(name, password, role);
     }
+
+    public boolean findByUsernameAndPassword(String name, String password) {
+        boolean isUserCreated = userRepository.findByUsernameAndPassword(name, password);
+        return isUserCreated;
+    }
 }

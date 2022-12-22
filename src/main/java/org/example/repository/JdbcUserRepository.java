@@ -55,6 +55,17 @@ public class JdbcUserRepository implements UserRepository {
     }
 
     @Override
+    public boolean findByUsernameAndPassword(String name, String password) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from users where name = ? and password = ?");
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+        @Override
     public void createUser(String name, String password, String role) {
         try (
                 PreparedStatement statement = connection.prepareStatement(
@@ -69,6 +80,7 @@ public class JdbcUserRepository implements UserRepository {
         }
     }
 
+
     private User buildUser(ResultSet rs) throws SQLException {
         return new User(
                 rs.getLong("id"),
@@ -78,5 +90,6 @@ public class JdbcUserRepository implements UserRepository {
                 rs.getTimestamp("created_at")
         );
     }
+
 
 }
