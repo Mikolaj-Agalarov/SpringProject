@@ -33,21 +33,21 @@ public class RegistrationController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String userRegistration(@Valid @ModelAttribute("dto") final UserDto dto) {
-//        boolean isFree = userService.checkIsUsernameIsFree(dto.getName());
-//        System.out.println(isFree);
-//        if (isFree) {
-//            return "registration";
-//        } else {
-//            userService.createUser(dto.getName(), dto.getPassword(), dto.getRole());
-//            authContext.setAuthorized(true);
-//            return "users";
-//        }
+    public RedirectView userRegistration(@Valid @ModelAttribute("dto") final UserDto dto) {
         boolean isFree = userService.checkIsUsernameIsFree(dto.getName());
         System.out.println(isFree);
-        userService.createUser(dto.getName(), dto.getPassword(), dto.getRole());
-        authContext.setAuthorized(true);
-        return "users";
+        if (isFree) {
+            return new RedirectView("/registration");
+        } else {
+            userService.createUser(dto.getName(), dto.getPassword(), dto.getRole());
+            authContext.setAuthorized(true);
+            return new RedirectView("/users");
+        }
+//        boolean isFree = userService.checkIsUsernameIsFree(dto.getName());
+//        System.out.println(isFree);
+//        userService.createUser(dto.getName(), dto.getPassword(), dto.getRole());
+//        authContext.setAuthorized(true);
+//        return "users";
     }
 
 }

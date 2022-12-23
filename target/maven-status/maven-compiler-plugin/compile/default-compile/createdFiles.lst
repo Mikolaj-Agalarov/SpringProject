@@ -10,5 +10,6 @@ org\example\config\JdbcConfig.class
 org\example\dto\UserDto.class
 org\example\controller\MainController.class
 org\example\controller\RegistrationController.class
+org\example\dto\LoginDto.class
 org\example\service\UserService.class
 org\example\UserApplication.class

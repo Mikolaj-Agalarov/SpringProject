@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.LoginDto;
 import org.example.dto.UserDto;
 import org.example.service.UserService;
 import org.example.session.AuthContext;
@@ -26,17 +27,18 @@ public class LoginController {
 
     @GetMapping
     protected String userLogin(Model model) {
-        model.addAttribute("dto", new UserDto());
+        model.addAttribute("dto", new LoginDto());
         return "login";
     }
 
     @PostMapping
-    protected String userAuthorization(Model model, @Valid @ModelAttribute("dto") UserDto dto) {
+    protected RedirectView userAuthorization(Model model, @Valid @ModelAttribute("dto") LoginDto dto) {
         boolean isUserCreated = userService.findByUsernameAndPassword(dto.getName(), dto.getPassword());
+        System.out.println(isUserCreated);
         if (isUserCreated) {
-            return "main";
+            return new RedirectView("/main");
         } else {
-            return "login";
+            return new RedirectView("login");
         }
     }
 }

@@ -59,6 +59,7 @@ public class JdbcUserRepository implements UserRepository {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "select * from users where name = ? and password = ?");
+            statement.executeQuery();
             return true;
         } catch (SQLException e) {
             return false;
